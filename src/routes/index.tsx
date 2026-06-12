@@ -290,7 +290,7 @@ function Index() {
           <div className="max-w-7xl mx-auto px-6">
             <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
               <div className="md:col-span-12">
-                <div className="mt-0 grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="mt-0 grid grid-cols-1 md:grid-cols-3 gap-8">
                   <article className="group">
                     <div className="w-1/2 aspect-[4/3] overflow-hidden rounded-[min(1vw,12px)] outline-1 -outline-offset-1 outline-black/5 mb-6">
                       <img
@@ -336,6 +336,21 @@ function Index() {
                       соответствия международным стандартам.
                     </p>
                   </article>
+                  <article className="group">
+                    <div className="w-1/2 aspect-[4/3] overflow-hidden rounded-[min(1vw,12px)] outline-1 -outline-offset-1 outline-black/5 mb-6 bg-zinc-100">
+                    </div>
+                    <span className="text-[12.5px] font-medium uppercase tracking-widest text-zinc-400">
+                      Кейс: Локализация
+                    </span>
+                    <h3 className="text-2xl font-medium mb-2 mt-2">
+                      Адаптация контента для новых рынков
+                    </h3>
+                    <p className="text-lg text-zinc-500 max-w-[44ch] text-pretty">
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      Sed do eiusmod tempor incididunt ut labore et dolore magna
+                      aliqua.
+                    </p>
+                  </article>
                 </div>
               </div>
             </div>
@@ -361,7 +376,7 @@ function Index() {
                         {s.no}
                       </div>
                       <div className="md:col-span-4">
-                        <h4 className="font-medium text-xl">{s.title}</h4>
+                        <h4 className="font-medium text-2xl">{s.title}</h4>
                       </div>
                       <div className="md:col-span-7 text-base text-zinc-600">
                         <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2">
