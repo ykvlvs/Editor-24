@@ -292,7 +292,7 @@ function Index() {
               <div className="md:col-span-12">
                 <div className="mt-0 grid grid-cols-1 md:grid-cols-2 gap-8">
                   <article className="group">
-                    <div className="w-full aspect-[4/3] overflow-hidden rounded-[min(1vw,12px)] outline-1 -outline-offset-1 outline-black/5 mb-6">
+                    <div className="w-1/2 aspect-[4/3] overflow-hidden rounded-[min(1vw,12px)] outline-1 -outline-offset-1 outline-black/5 mb-6">
                       <img
                         src={caseFintech}
                         alt="Кейс: масштабирование базы знаний"
@@ -315,7 +315,7 @@ function Index() {
                     </p>
                   </article>
                   <article className="group">
-                    <div className="w-full aspect-[4/3] overflow-hidden rounded-[min(1vw,12px)] outline-1 -outline-offset-1 outline-black/5 mb-6">
+                    <div className="w-1/2 aspect-[4/3] overflow-hidden rounded-[min(1vw,12px)] outline-1 -outline-offset-1 outline-black/5 mb-6">
                       <img
                         src={caseIndustrial}
                         alt="Кейс: LQA для экспортных контрактов"
