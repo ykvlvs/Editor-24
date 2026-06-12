@@ -221,19 +221,7 @@ function Index() {
         <section className="py-24 md:py-32 border-b border-zinc-950/5">
           <div className="max-w-7xl mx-auto px-6">
             <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
-              <div className="md:col-span-2">
-                <span className="text-xs font-medium uppercase tracking-widest text-zinc-400">
-                  § 01 / Введение
-                </span>
-                <p className="mt-4 text-xs text-zinc-400 leading-relaxed max-w-[20ch]">
-                  Том IV
-                  <br />
-                  Выпуск 2024
-                  <br />
-                  Москва, РФ
-                </p>
-              </div>
-              <div className="md:col-span-10">
+              <div className="md:col-span-12">
                 <h1 className="font-serif text-5xl md:text-7xl leading-none text-balance mb-12">
                   Агентство редактуры и
                   <br />
@@ -286,12 +274,7 @@ function Index() {
         <section className="py-24 bg-zinc-50">
           <div className="max-w-7xl mx-auto px-6">
             <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
-              <div className="md:col-span-2">
-                <span className="text-xs font-medium uppercase tracking-widest text-zinc-400">
-                  § 02 / Доверие
-                </span>
-              </div>
-              <div className="md:col-span-10">
+              <div className="md:col-span-12">
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-x-8 gap-y-10 items-center">
                   {CLIENTS.map((c) => (
                     <div
@@ -358,12 +341,7 @@ function Index() {
         <section id="services" className="py-24 border-t border-zinc-950/5">
           <div className="max-w-7xl mx-auto px-6">
             <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
-              <div className="md:col-span-2">
-                <span className="text-xs font-medium uppercase tracking-widest text-zinc-400">
-                  § 03 / Услуги
-                </span>
-              </div>
-              <div className="md:col-span-10">
+              <div className="md:col-span-12">
                 <h2 className="font-serif text-4xl md:text-5xl leading-tight mb-12 max-w-[24ch]">
                   Полный цикл работы с&nbsp;
                   <span className="italic text-ink">корпоративным текстом</span>
@@ -402,12 +380,7 @@ function Index() {
         <section id="tech" className="py-24 bg-ink text-white">
           <div className="max-w-7xl mx-auto px-6">
             <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
-              <div className="md:col-span-2">
-                <span className="text-xs font-medium uppercase tracking-widest opacity-40">
-                  § 04 / Технологии
-                </span>
-              </div>
-              <div className="md:col-span-10">
+              <div className="md:col-span-12">
                 <h2 className="text-3xl md:text-5xl font-serif text-balance mb-16 max-w-[28ch] leading-tight">
                   Автоматизация редпроцессов через{" "}
                   <span className="italic opacity-70">
@@ -437,12 +410,7 @@ function Index() {
         <section id="knowledge" className="py-24 border-t border-zinc-950/5">
           <div className="max-w-7xl mx-auto px-6">
             <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
-              <div className="md:col-span-2">
-                <span className="text-xs font-medium uppercase tracking-widest text-zinc-400">
-                  § 05 / База знаний
-                </span>
-              </div>
-              <div className="md:col-span-10">
+              <div className="md:col-span-12">
                 <h2 className="font-serif text-4xl md:text-5xl leading-tight mb-12 max-w-[24ch]">
                   Открытая методология и&nbsp;
                   <span className="italic text-ink">
@@ -480,12 +448,7 @@ function Index() {
         >
           <div className="max-w-7xl mx-auto px-6">
             <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
-              <div className="md:col-span-2">
-                <span className="text-xs font-medium uppercase tracking-widest text-zinc-400">
-                  § 06 / О компании
-                </span>
-              </div>
-              <div className="md:col-span-10 grid grid-cols-1 md:grid-cols-2 gap-16">
+              <div className="md:col-span-12 grid grid-cols-1 md:grid-cols-2 gap-16">
                 <div>
                   <h3 className="font-serif text-3xl md:text-4xl leading-tight mb-8">
                     Экспертная команда
@@ -537,9 +500,6 @@ function Index() {
           <div className="max-w-7xl mx-auto px-6">
             <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
               <div className="md:col-span-4">
-                <span className="text-xs font-medium uppercase tracking-widest text-zinc-400">
-                  § 07 / Контакты
-                </span>
                 <h3 className="text-3xl md:text-4xl font-serif mt-6 mb-4 leading-tight">
                   Расскажите о
                   <br />
