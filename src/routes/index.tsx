@@ -219,7 +219,7 @@ function Index() {
 
       <main id="top">
         {/* § 01 Hero */}
-        <section className="pt-10 md:pt-16 pb-24 md:pb-32 border-b border-zinc-950/5">
+        <section className="pt-10 md:pt-16 pb-24 md:pb-32 border-b border-zinc-950/5 bg-gradient-to-br from-amber-50 via-amber-50/40 to-paper">
           <div className="max-w-7xl mx-auto px-6">
             <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
               <div className="md:col-span-7">
@@ -265,7 +265,7 @@ function Index() {
                   </a>
                 </div>
               </div>
-              <div className="hidden md:block md:col-span-5 overflow-hidden rounded-[min(1vw,12px)] -translate-y-1/4">
+              <div className="hidden md:block md:col-span-5 overflow-hidden rounded-[min(1vw,12px)] -translate-y-[10%]">
                 <img
                   src={heroImage}
                   alt=""
@@ -397,11 +397,11 @@ function Index() {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-white/10">
                   {TECH.map((t) => (
                     <div key={t.no} className="bg-ink p-8">
-                      <div className="text-[10px] uppercase tracking-widest opacity-40 mb-6">
+                      <div className="text-[12.5px] uppercase tracking-widest opacity-40 mb-6">
                         {t.no}
                       </div>
-                      <h5 className="text-lg font-medium mb-3">{t.title}</h5>
-                      <p className="text-sm opacity-60 leading-relaxed max-w-[40ch]">
+                      <h5 className="text-[22.5px] font-medium mb-3">{t.title}</h5>
+                      <p className="text-lg opacity-60 leading-relaxed max-w-[40ch]">
                         {t.description}
                       </p>
                     </div>
