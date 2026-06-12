@@ -179,34 +179,32 @@ function Index() {
     <div className="min-h-screen bg-paper text-graphite font-sans selection:bg-ink/10 selection:text-ink">
       {/* Navigation */}
       <nav className="sticky top-0 z-50 bg-paper/80 backdrop-blur-md border-b border-zinc-950/5">
-        <div className="max-w-7xl mx-auto px-6 h-16 grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4 md:flex md:justify-between">
-          <div className="flex min-w-0 items-center gap-8">
+        <div className="max-w-7xl mx-auto px-6 h-16 grid grid-cols-[auto_1fr_auto] items-center gap-4">
+          <a
+            href="#top"
+            className="shrink-0 font-medium tracking-tight text-lg underline decoration-ink decoration-2 underline-offset-4"
+          >
+            Редактор&nbsp;24
+          </a>
+          <div className="hidden md:flex items-center justify-center gap-8 text-lg text-zinc-500 font-medium">
             <a
-              href="#top"
-              className="shrink-0 font-medium tracking-tight text-lg underline decoration-ink decoration-2 underline-offset-4"
+              href="#services"
+              className="hover:text-graphite transition-colors"
             >
-              Редактор&nbsp;24
+              Услуги
             </a>
-            <div className="hidden md:flex items-center gap-8 text-lg text-zinc-500 font-medium">
-              <a
-                href="#services"
-                className="hover:text-graphite transition-colors"
-              >
-                Услуги
-              </a>
-              <a href="#tech" className="hover:text-graphite transition-colors">
-                Технологии
-              </a>
-              <a
-                href="#knowledge"
-                className="hover:text-graphite transition-colors"
-              >
-                База знаний
-              </a>
-              <a href="#about" className="hover:text-graphite transition-colors">
-                О компании
-              </a>
-            </div>
+            <a href="#tech" className="hover:text-graphite transition-colors">
+              Технологии
+            </a>
+            <a
+              href="#knowledge"
+              className="hover:text-graphite transition-colors"
+            >
+              База знаний
+            </a>
+            <a href="#about" className="hover:text-graphite transition-colors">
+              О компании
+            </a>
           </div>
           <a
             href="#contact"
@@ -249,7 +247,7 @@ function Index() {
                   })}
                 </div>
                 <div>
-                  <p className="text-lg text-pretty max-w-[48ch] leading-relaxed">
+                  <p className="text-lg text-pretty leading-relaxed">
                     {active.description}
                   </p>
                   <a
@@ -268,6 +266,22 @@ function Index() {
                 />
               </div>
             </div>
+            <div className="overflow-hidden mt-12 md:mt-16 border-t border-zinc-950/5 pt-8">
+              <div
+                className="inline-flex gap-16 whitespace-nowrap"
+                style={{ animation: "marquee 40s linear infinite" }}
+              >
+                {[...CLIENTS, ...CLIENTS].map((c, i) => (
+                  <span
+                    key={i}
+                    className="text-sm md:text-base font-serif italic text-zinc-400 tracking-tight shrink-0"
+                  >
+                    {c}
+                  </span>
+                ))}
+              </div>
+              <style>{`@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}`}</style>
+            </div>
           </div>
         </section>
 
@@ -276,17 +290,7 @@ function Index() {
           <div className="max-w-7xl mx-auto px-6">
             <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
               <div className="md:col-span-12">
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-x-8 gap-y-10 items-center">
-                  {CLIENTS.map((c) => (
-                    <div
-                      key={c}
-                      className="text-sm font-serif italic text-zinc-400 tracking-tight"
-                    >
-                      {c}
-                    </div>
-                  ))}
-                </div>
-                <div className="mt-24 grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="mt-0 grid grid-cols-1 md:grid-cols-2 gap-8">
                   <article className="group">
                     <div className="w-full aspect-[4/3] overflow-hidden rounded-[min(1vw,12px)] outline-1 -outline-offset-1 outline-black/5 mb-6">
                       <img
@@ -538,40 +542,40 @@ function Index() {
                   onSubmit={(e) => e.preventDefault()}
                 >
                   <div className="space-y-1">
-                    <label className="text-[10px] uppercase tracking-wider text-zinc-400 font-semibold">
+                    <label className="text-xs uppercase tracking-wider text-zinc-400 font-semibold">
                       Ваше имя
                     </label>
                     <input
                       type="text"
-                      className="w-full bg-transparent border-b border-zinc-950/10 py-2 focus:outline-none focus:border-ink transition-colors text-sm"
+                      className="w-full bg-transparent border-b border-zinc-950/10 py-2 focus:outline-none focus:border-ink transition-colors text-[17px]"
                       placeholder="Имя Фамилия"
                     />
                   </div>
                   <div className="space-y-1">
-                    <label className="text-[10px] uppercase tracking-wider text-zinc-400 font-semibold">
+                    <label className="text-xs uppercase tracking-wider text-zinc-400 font-semibold">
                       Компания
                     </label>
                     <input
                       type="text"
-                      className="w-full bg-transparent border-b border-zinc-950/10 py-2 focus:outline-none focus:border-ink transition-colors text-sm"
+                      className="w-full bg-transparent border-b border-zinc-950/10 py-2 focus:outline-none focus:border-ink transition-colors text-[17px]"
                       placeholder="ООО «Компания»"
                     />
                   </div>
                   <div className="space-y-1">
-                    <label className="text-[10px] uppercase tracking-wider text-zinc-400 font-semibold">
+                    <label className="text-xs uppercase tracking-wider text-zinc-400 font-semibold">
                       Электронная почта
                     </label>
                     <input
                       type="email"
-                      className="w-full bg-transparent border-b border-zinc-950/10 py-2 focus:outline-none focus:border-ink transition-colors text-sm"
+                      className="w-full bg-transparent border-b border-zinc-950/10 py-2 focus:outline-none focus:border-ink transition-colors text-[17px]"
                       placeholder="email@company.ru"
                     />
                   </div>
                   <div className="space-y-1">
-                    <label className="text-[10px] uppercase tracking-wider text-zinc-400 font-semibold">
+                    <label className="text-xs uppercase tracking-wider text-zinc-400 font-semibold">
                       Тип задачи
                     </label>
-                    <select className="w-full bg-transparent border-b border-zinc-950/10 py-2 focus:outline-none focus:border-ink transition-colors text-sm">
+                    <select className="w-full bg-transparent border-b border-zinc-950/10 py-2 focus:outline-none focus:border-ink transition-colors text-[17px]">
                       <option>Техническая документация</option>
                       <option>Маркетинговый контент</option>
                       <option>Юридическая вычитка</option>
@@ -579,23 +583,23 @@ function Index() {
                     </select>
                   </div>
                   <div className="md:col-span-2 space-y-1 pt-4">
-                    <label className="text-[10px] uppercase tracking-wider text-zinc-400 font-semibold">
+                    <label className="text-xs uppercase tracking-wider text-zinc-400 font-semibold">
                       Детали задачи
                     </label>
                     <textarea
                       rows={3}
-                      className="w-full bg-transparent border-b border-zinc-950/10 py-2 focus:outline-none focus:border-ink transition-colors text-sm resize-none"
+                      className="w-full bg-transparent border-b border-zinc-950/10 py-2 focus:outline-none focus:border-ink transition-colors text-[17px] resize-none"
                       placeholder="Опишите объём, тип контента и желаемые сроки…"
                     />
                   </div>
                   <div className="md:col-span-2 pt-6 flex items-center justify-between flex-wrap gap-4">
-                    <p className="text-[11px] text-zinc-400 max-w-[40ch]">
+                    <p className="text-sm text-zinc-400 max-w-[40ch]">
                       Отправляя форму, вы соглашаетесь с обработкой персональных
                       данных в рамках NDA.
                     </p>
                     <button
                       type="submit"
-                      className="bg-graphite text-white px-8 py-3 rounded-full text-sm font-medium ring-2 ring-graphite ring-offset-2 ring-offset-paper transition-transform hover:-translate-y-px"
+                      className="bg-graphite text-white px-8 py-3 rounded-full text-[17px] font-medium ring-2 ring-graphite ring-offset-2 ring-offset-paper transition-transform hover:-translate-y-px"
                     >
                       Отправить запрос
                     </button>
