@@ -219,16 +219,14 @@ function Index() {
 
       <main id="top">
         {/* § 01 Hero */}
-        <section className="pt-16 md:pt-24 pb-24 md:pb-32 border-b border-zinc-950/5">
+        <section className="pt-10 md:pt-16 pb-24 md:pb-32 border-b border-zinc-950/5">
           <div className="max-w-7xl mx-auto px-6">
             <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
               <div className="md:col-span-7">
-                <h1 className="font-serif text-5xl md:text-7xl leading-none text-balance mb-12">
+                <h1 className="font-serif text-5xl md:text-7xl leading-none text-balance mb-12 -mt-4">
                   Агентство редактуры
                   <br />
-                  и
-                  <br />
-                  <span className="italic text-ink">контент-технологий</span>
+                  <span className="italic text-ink">и контент-технологий</span>
                 </h1>
                 <div className="mb-6">
                   <span className="text-[10px] uppercase tracking-widest text-zinc-400 font-semibold">
@@ -267,7 +265,7 @@ function Index() {
                   </a>
                 </div>
               </div>
-              <div className="hidden md:block md:col-span-5 overflow-hidden rounded-[min(1vw,12px)]">
+              <div className="hidden md:block md:col-span-5 overflow-hidden rounded-[min(1vw,12px)] -translate-y-1/4">
                 <img
                   src={heroImage}
                   alt=""
