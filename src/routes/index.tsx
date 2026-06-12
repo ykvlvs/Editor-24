@@ -217,10 +217,10 @@ function Index() {
 
       <main id="top">
         {/* § 01 Hero */}
-        <section className="pt-10 md:pt-16 pb-24 md:pb-32 border-b border-zinc-950/5 bg-gradient-to-br from-amber-50 via-amber-50/40 to-paper">
+        <section className="relative pt-8 md:pt-12 pb-20 md:pb-24 border-b border-zinc-950/5 bg-gradient-to-br from-amber-50 via-amber-50/40 to-paper">
           <div className="max-w-7xl mx-auto px-6">
             <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
-              <div className="md:col-span-8">
+              <div className="md:col-span-7 lg:col-span-6">
                 <h1 className="font-serif text-5xl md:text-7xl leading-none text-balance mb-12 -mt-4">
                   Агентство редактуры
                   <br />
@@ -258,15 +258,8 @@ function Index() {
                   </a>
                 </div>
               </div>
-              <div className="hidden md:block md:col-span-4 overflow-hidden rounded-[min(1vw,12px)] -translate-y-[10%]">
-                <img
-                  src={heroImage}
-                  alt=""
-                  className="w-full h-full object-cover object-left"
-                />
-              </div>
             </div>
-            <div className="overflow-hidden mt-12 md:mt-16 border-t border-zinc-950/5 pt-8">
+            <div className="overflow-hidden mt-8 md:mt-10 border-t border-zinc-950/5 pt-8">
               <div
                 className="inline-flex gap-16 whitespace-nowrap"
                 style={{ animation: "marquee 40s linear infinite" }}
@@ -282,6 +275,13 @@ function Index() {
               </div>
               <style>{`@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}`}</style>
             </div>
+          </div>
+          <div className="hidden md:block absolute top-0 right-0 h-full w-[42%] overflow-hidden pointer-events-none">
+            <img
+              src={heroImage}
+              alt=""
+              className="w-full h-full object-cover object-left"
+            />
           </div>
         </section>
 
@@ -542,12 +542,6 @@ function Index() {
                       Telegram
                     </dt>
                     <dd className="font-medium">@editor24_agency</dd>
-                  </div>
-                  <div className="grid grid-cols-[6rem_1fr] gap-3">
-                    <dt className="text-zinc-400 uppercase tracking-widest text-[10px] pt-1">
-                      Москва
-                    </dt>
-                    <dd className="font-medium">Пресненская наб., 12</dd>
                   </div>
                 </dl>
               </div>
