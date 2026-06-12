@@ -291,8 +291,8 @@ function Index() {
                       <img
                         src={caseFintech}
                         alt="Кейс: масштабирование базы знаний"
-                        width={800}
-                        height={608}
+                        width={400}
+                        height={304}
                         loading="lazy"
                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]"
                       />
@@ -314,8 +314,8 @@ function Index() {
                       <img
                         src={caseIndustrial}
                         alt="Кейс: LQA для экспортных контрактов"
-                        width={800}
-                        height={608}
+                        width={400}
+                        height={304}
                         loading="lazy"
                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]"
                       />
@@ -352,13 +352,13 @@ function Index() {
                       key={s.no}
                       className="py-8 grid grid-cols-1 md:grid-cols-12 gap-4 transition-colors hover:bg-zinc-50/60"
                     >
-                      <div className="md:col-span-1 text-xs font-medium tracking-widest text-zinc-400">
+                      <div className="md:col-span-1 text-sm font-medium tracking-widest text-zinc-400">
                         {s.no}
                       </div>
                       <div className="md:col-span-4">
-                        <h4 className="font-medium text-lg">{s.title}</h4>
+                        <h4 className="font-medium text-xl">{s.title}</h4>
                       </div>
-                      <div className="md:col-span-7 text-sm text-zinc-600">
+                      <div className="md:col-span-7 text-base text-zinc-600">
                         <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2">
                           {s.items.map((i) => (
                             <li key={i} className="flex items-start gap-2">
