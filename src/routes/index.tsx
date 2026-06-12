@@ -186,7 +186,7 @@ function Index() {
             >
               Редактор&nbsp;24
             </a>
-            <div className="hidden md:flex items-center gap-6 text-sm text-zinc-500 font-medium">
+            <div className="hidden md:flex items-center gap-8 text-lg text-zinc-500 font-medium">
               <a
                 href="#services"
                 className="hover:text-graphite transition-colors"
@@ -252,18 +252,16 @@ function Index() {
                     );
                   })}
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div>
                   <p className="text-lg text-pretty max-w-[48ch] leading-relaxed">
                     {active.description}
                   </p>
-                  <div className="flex flex-col justify-end">
-                    <a
-                      href="#contact"
-                      className="w-fit bg-ink text-white px-5 py-2.5 rounded-full text-sm font-medium ring-2 ring-ink ring-offset-2 ring-offset-paper transition-transform hover:-translate-y-px"
-                    >
-                      {active.cta}
-                    </a>
-                  </div>
+                  <a
+                    href="#contact"
+                    className="mt-6 inline-block w-fit bg-ink text-white px-5 py-2.5 rounded-full text-sm font-medium ring-2 ring-ink ring-offset-2 ring-offset-paper transition-transform hover:-translate-y-px"
+                  >
+                    {active.cta}
+                  </a>
                 </div>
               </div>
             </div>
