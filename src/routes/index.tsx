@@ -473,19 +473,7 @@ function Index() {
                   <h3 className="font-serif text-3xl md:text-4xl leading-tight mb-8">
                     Экспертная команда
                   </h3>
-                  <ul className="divide-y divide-zinc-950/10 border-y border-zinc-950/10">
-                    {TEAM.map((m) => (
-                      <li
-                        key={m.name}
-                        className="py-4 flex items-baseline justify-between gap-4"
-                      >
-                        <span className="font-medium">{m.name}</span>
-                        <span className="text-sm text-zinc-500 text-right">
-                          {m.role}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
+
                 </div>
                 <div>
                   <h3 className="font-serif text-3xl md:text-4xl leading-tight mb-8">
@@ -626,7 +614,7 @@ function Index() {
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-8 items-end">
           <div className="md:col-span-6 space-y-4">
             <p className="text-xs text-zinc-400 font-medium tracking-tight uppercase">
-              © 2024 Редактор 24 / Контент-технологии
+              2026 Редактор 24
             </p>
             <p className="text-sm text-zinc-500 max-w-[44ch]">
               Профессиональная редактура для бизнеса, технологий и права.
