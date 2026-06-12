@@ -444,13 +444,13 @@ function Index() {
                       href="#"
                       className="group block border-t border-ink pt-4 transition-colors"
                     >
-                      <span className="text-[10px] font-medium uppercase tracking-widest text-zinc-400">
+                      <span className="text-[13px] font-medium uppercase tracking-widest text-zinc-400">
                         {k.tag}
                       </span>
-                      <h4 className="font-serif text-2xl leading-tight mt-3 mb-3 group-hover:text-ink transition-colors">
+                      <h4 className="font-serif text-[31px] leading-tight mt-3 mb-3 group-hover:text-ink transition-colors">
                         {k.title}
                       </h4>
-                      <p className="text-sm text-zinc-500 text-pretty">
+                      <p className="text-lg text-zinc-500 text-pretty">
                         {k.note}
                       </p>
                     </a>
@@ -552,6 +552,7 @@ function Index() {
                 </dl>
               </div>
               <div className="md:col-span-8">
+                <div className="relative rounded-2xl bg-gradient-to-br from-amber-50/80 via-paper to-amber-50/60 p-8 shadow-xl shadow-amber-900/5 ring-1 ring-zinc-950/5">
                 <form
                   className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6"
                   onSubmit={(e) => e.preventDefault()}
@@ -620,6 +621,7 @@ function Index() {
                     </button>
                   </div>
                 </form>
+                </div>
               </div>
             </div>
           </div>
