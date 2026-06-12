@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import caseFintech from "@/assets/case-fintech.jpg";
 import caseIndustrial from "@/assets/case-industrial.jpg";
+import heroImage from "@/assets/tw.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -218,12 +219,14 @@ function Index() {
 
       <main id="top">
         {/* § 01 Hero */}
-        <section className="py-24 md:py-32 border-b border-zinc-950/5">
+        <section className="pt-16 md:pt-24 pb-24 md:pb-32 border-b border-zinc-950/5">
           <div className="max-w-7xl mx-auto px-6">
             <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
-              <div className="md:col-span-12">
+              <div className="md:col-span-7">
                 <h1 className="font-serif text-5xl md:text-7xl leading-none text-balance mb-12">
-                  Агентство редактуры и
+                  Агентство редактуры
+                  <br />
+                  и
                   <br />
                   <span className="italic text-ink">контент-технологий</span>
                 </h1>
@@ -263,6 +266,13 @@ function Index() {
                     {active.cta}
                   </a>
                 </div>
+              </div>
+              <div className="hidden md:block md:col-span-5 overflow-hidden rounded-[min(1vw,12px)]">
+                <img
+                  src={heroImage}
+                  alt=""
+                  className="w-full h-full object-cover object-left"
+                />
               </div>
             </div>
           </div>
