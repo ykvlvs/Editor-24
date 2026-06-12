@@ -297,13 +297,13 @@ function Index() {
                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]"
                       />
                     </div>
-                    <span className="text-[10px] font-medium uppercase tracking-widest text-zinc-400">
+                    <span className="text-[12.5px] font-medium uppercase tracking-widest text-zinc-400">
                       Кейс: ФинТех
                     </span>
-                    <h3 className="text-xl font-medium mb-2 mt-2">
+                    <h3 className="text-2xl font-medium mb-2 mt-2">
                       Масштабирование базы знаний
                     </h3>
-                    <p className="text-sm text-zinc-500 max-w-[44ch] text-pretty">
+                    <p className="text-lg text-zinc-500 max-w-[44ch] text-pretty">
                       Снижение нагрузки на техподдержку на 42% за счёт
                       внедрения новой архитектуры документации и единого
                       глоссария.
@@ -320,13 +320,13 @@ function Index() {
                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]"
                       />
                     </div>
-                    <span className="text-[10px] font-medium uppercase tracking-widest text-zinc-400">
+                    <span className="text-[12.5px] font-medium uppercase tracking-widest text-zinc-400">
                       Кейс: Промышленность
                     </span>
-                    <h3 className="text-xl font-medium mb-2 mt-2">
+                    <h3 className="text-2xl font-medium mb-2 mt-2">
                       LQA для экспортных контрактов
                     </h3>
-                    <p className="text-sm text-zinc-500 max-w-[44ch] text-pretty">
+                    <p className="text-lg text-zinc-500 max-w-[44ch] text-pretty">
                       Лингвистический аудит 1200+ страниц документации для
                       соответствия международным стандартам.
                     </p>
