@@ -12,6 +12,10 @@ const BRUTALIST = [
   "Alfa Slab One",
   "Staatliches",
   "Passion One",
+  "Darker Grotesque",
+  "Roboto Mono",
+  "Space Mono",
+  "Inter",
 ];
 
 const SERIF = [
