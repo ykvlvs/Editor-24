@@ -222,17 +222,12 @@ function Index() {
         <section className="pt-10 md:pt-16 pb-24 md:pb-32 border-b border-zinc-950/5 bg-gradient-to-br from-amber-50 via-amber-50/40 to-paper">
           <div className="max-w-7xl mx-auto px-6">
             <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
-              <div className="md:col-span-7">
+              <div className="md:col-span-8">
                 <h1 className="font-serif text-5xl md:text-7xl leading-none text-balance mb-12 -mt-4">
                   Агентство редактуры
                   <br />
                   <span className="italic text-ink">и контент-технологий</span>
                 </h1>
-                <div className="mb-6">
-                  <span className="text-[10px] uppercase tracking-widest text-zinc-400 font-semibold">
-                    Выберите вашу задачу
-                  </span>
-                </div>
                 <div className="inline-flex flex-wrap p-1 bg-zinc-900/5 rounded-lg mb-12">
                   {(Object.keys(TASKS) as TaskKey[]).map((key) => {
                     const isActive = key === task;
@@ -265,7 +260,7 @@ function Index() {
                   </a>
                 </div>
               </div>
-              <div className="hidden md:block md:col-span-5 overflow-hidden rounded-[min(1vw,12px)] -translate-y-[10%]">
+              <div className="hidden md:block md:col-span-4 overflow-hidden rounded-[min(1vw,12px)] -translate-y-[10%]">
                 <img
                   src={heroImage}
                   alt=""
@@ -348,7 +343,7 @@ function Index() {
           <div className="max-w-7xl mx-auto px-6">
             <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
               <div className="md:col-span-12">
-                <h2 className="font-serif text-4xl md:text-5xl leading-tight mb-12 max-w-[24ch]">
+                <h2 className="font-serif text-4xl md:text-5xl leading-tight mb-12">
                   Полный цикл работы с&nbsp;
                   <span className="italic text-ink">корпоративным текстом</span>
                 </h2>
@@ -387,7 +382,7 @@ function Index() {
           <div className="max-w-7xl mx-auto px-6">
             <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
               <div className="md:col-span-12">
-                <h2 className="text-3xl md:text-5xl font-serif text-balance mb-16 max-w-[28ch] leading-tight">
+                <h2 className="text-3xl md:text-5xl font-serif text-balance mb-16 leading-tight">
                   Автоматизация редпроцессов через{" "}
                   <span className="italic opacity-70">
                     проприетарный стек
@@ -417,7 +412,7 @@ function Index() {
           <div className="max-w-7xl mx-auto px-6">
             <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
               <div className="md:col-span-12">
-                <h2 className="font-serif text-4xl md:text-5xl leading-tight mb-12 max-w-[24ch]">
+                <h2 className="font-serif text-4xl md:text-5xl leading-tight mb-12">
                   Открытая методология и&nbsp;
                   <span className="italic text-ink">
                     отраслевые материалы
@@ -506,13 +501,13 @@ function Index() {
           <div className="max-w-7xl mx-auto px-6">
             <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
               <div className="md:col-span-4">
-                <h3 className="text-3xl md:text-4xl font-serif mt-6 mb-4 leading-tight">
+                <h3 className="text-4xl md:text-5xl font-serif mt-6 mb-4 leading-tight">
                   Расскажите о
                   <br />
                   вашем&nbsp;
                   <span className="italic text-ink">проекте</span>
                 </h3>
-                <p className="text-sm text-zinc-500 max-w-[34ch] text-pretty">
+                <p className="text-xl text-zinc-500 max-w-[48ch] text-pretty">
                   Ответим в течение двух рабочих часов с предварительной оценкой
                   сроков и стоимости. NDA — по умолчанию.
                 </p>
