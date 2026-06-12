@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 
 const BRUTALIST = [
   "Bebas Neue",
@@ -48,11 +48,39 @@ export const Route = createFileRoute("/logo")({
 function LogosPage() {
   const [l, setL] = useState("Bebas Neue");
   const [s, setS] = useState("Playfair Display");
+  const ref = useRef<HTMLHeadingElement>(null);
   useFontLoader();
+
+  const fit = useCallback(() => {
+    requestAnimationFrame(() => {
+      const el = ref.current;
+      if (!el) return;
+      el.style.fontSize = "";
+      const pw = el.parentElement?.clientWidth ?? window.innerWidth;
+      const sw = el.scrollWidth;
+      if (sw > pw) {
+        el.style.fontSize = `${(pw / sw) * parseFloat(getComputedStyle(el).fontSize) * 0.97}px`;
+      }
+    });
+  }, []);
+
+  useEffect(() => {
+    fit();
+    window.addEventListener("resize", fit);
+    return () => window.removeEventListener("resize", fit);
+  }, [fit]);
+
+  useEffect(() => {
+    const id = setTimeout(fit, 600);
+    return () => clearTimeout(id);
+  }, [l, s, fit]);
 
   return (
     <div className="min-h-screen bg-[#f5f0eb] flex flex-col items-center justify-center px-6">
-      <h1 className="text-[18vw] md:text-[16vw] leading-[0.85] tracking-tighter text-center mb-20">
+      <h1
+        ref={ref}
+        className="text-[18vw] md:text-[16vw] leading-[0.85] tracking-tighter text-center mb-20 whitespace-nowrap"
+      >
         <span style={{ fontFamily: l }}>Logos</span>{" "}
         <span style={{ fontFamily: s }}>Supreme</span>
       </h1>
