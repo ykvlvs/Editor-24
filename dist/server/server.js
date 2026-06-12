@@ -1,3 +1,7 @@
+import { createServer } from "node:http";
+import { URL as URL$1 } from "node:url";
+import { existsSync, readFileSync } from "node:fs";
+import { join, extname } from "node:path";
 import { AsyncLocalStorage } from "node:async_hooks";
 import { H3Event, toResponse } from "h3-v2";
 import { rootRouteId, defaultSerovalPlugins, makeSerovalPlugin, createRawStreamRPCPlugin, invariant, isNotFound, isRedirect, getScriptPreloadAttrs, getStylesheetHref, resolveManifestCssLink, resolveManifestAssetLink, createSerializationAdapter, isResolvedRedirect, executeRewriteInput } from "@tanstack/router-core";
@@ -48,7 +52,7 @@ function attachResponseHeaders(value, event) {
   if (value instanceof Response) mergeEventResponseHeaders(value, event);
   return value;
 }
-function requestHandler(handler) {
+function requestHandler(handler2) {
   return (request, requestOpts) => {
     let h3Event;
     try {
@@ -60,7 +64,7 @@ function requestHandler(handler) {
       });
       throw error;
     }
-    return toResponse(attachResponseHeaders(eventStorage.run({ h3Event }, () => handler(request, requestOpts)), h3Event), h3Event);
+    return toResponse(attachResponseHeaders(eventStorage.run({ h3Event }, () => handler2(request, requestOpts)), h3Event), h3Event);
   };
 }
 function getH3Event() {
@@ -73,7 +77,7 @@ function getResponse() {
 }
 var HEADERS = { TSS_SHELL: "X-TSS_SHELL" };
 async function getStartManifest(matchedRoutes) {
-  const { tsrStartManifest } = await import("./assets/_tanstack-start-manifest_v-B3D1E_y-.js");
+  const { tsrStartManifest } = await import("./assets/_tanstack-start-manifest_v-p062e6b3.js");
   const startManifest = tsrStartManifest();
   let routes = startManifest.routes;
   routes[rootRouteId];
@@ -1151,8 +1155,8 @@ var getBaseManifest = getProdBaseManifest;
 var createEarlyHintsForRequest = createEarlyHintsCollector;
 async function loadEntries() {
   const [routerEntry, startEntry, pluginAdapters] = await Promise.all([
-    import("./assets/router-DeFcxUCt.js"),
-    import("./assets/start-HYkvq4Ni.js"),
+    import("./assets/router-CxUgibT-.js"),
+    import("./assets/start-CsnQx6BY.js"),
     import("./assets/empty-plugin-adapters-BFgPZ6_d.js")
   ]);
   return {
@@ -1190,8 +1194,8 @@ If you intentionally handle CSRF another way, disable this warning:
     },
   })`);
 }
-var ROUTER_BASEPATH = "/";
-var SERVER_FN_BASE = "/_serverFn/";
+var ROUTER_BASEPATH = "editor";
+var SERVER_FN_BASE = "/editor/_serverFn/";
 var IS_PRERENDERING = process.env.TSS_PRERENDERING === "true";
 var IS_SHELL_ENV = process.env.TSS_SHELL === "true";
 var ERR_NO_RESPONSE = "Internal Server Error";
@@ -1276,10 +1280,10 @@ async function executeMiddleware(middlewares, ctx) {
     response: await getFinalResponse()
   };
 }
-function handlerToMiddleware(handler, mayDefer = false) {
-  if (mayDefer) return handler;
+function handlerToMiddleware(handler2, mayDefer = false) {
+  if (mayDefer) return handler2;
   return async (ctx) => {
-    const response = await handler({
+    const response = await handler2({
       ...ctx,
       next: throwIfMayNotDefer
     });
@@ -1482,17 +1486,17 @@ async function handleServerRoutes({ getRouter, request, url, executeRouter, cont
   if (server2?.handlers && isExactMatch) {
     const handlers = typeof server2.handlers === "function" ? server2.handlers({ createHandlers: (d) => d }) : server2.handlers;
     const requestMethod = request.method.toUpperCase();
-    const handler = requestMethod === "HEAD" ? handlers["HEAD"] ?? handlers["GET"] ?? handlers["ANY"] : handlers[requestMethod] ?? handlers["ANY"];
-    isHeadFallback = requestMethod === "HEAD" && handler !== void 0 && !handlers["HEAD"];
-    if (handler) {
+    const handler2 = requestMethod === "HEAD" ? handlers["HEAD"] ?? handlers["GET"] ?? handlers["ANY"] : handlers[requestMethod] ?? handlers["ANY"];
+    isHeadFallback = requestMethod === "HEAD" && handler2 !== void 0 && !handlers["HEAD"];
+    if (handler2) {
       const mayDefer = !!foundRoute.options.component;
-      if (typeof handler === "function") routeMiddlewares.push(handlerToMiddleware(handler, mayDefer));
+      if (typeof handler2 === "function") routeMiddlewares.push(handlerToMiddleware(handler2, mayDefer));
       else {
-        if (handler.middleware?.length) {
-          const handlerMiddlewares = flattenMiddlewares(handler.middleware);
+        if (handler2.middleware?.length) {
+          const handlerMiddlewares = flattenMiddlewares(handler2.middleware);
           for (const m of handlerMiddlewares) routeMiddlewares.push(m.options.server);
         }
-        if (handler.handler) routeMiddlewares.push(handlerToMiddleware(handler.handler, mayDefer));
+        if (handler2.handler) routeMiddlewares.push(handlerToMiddleware(handler2.handler, mayDefer));
       }
     }
   }
@@ -1510,16 +1514,108 @@ async function handleServerRoutes({ getRouter, request, url, executeRouter, cont
   }
   return normalizeSsrResponse(response);
 }
-const fetch = createStartHandler(defaultStreamHandler);
-function createServerEntry(entry) {
-  return {
-    async fetch(...args) {
-      return await entry.fetch(...args);
-    }
-  };
+const handler = createStartHandler(defaultStreamHandler);
+async function handleRequest(request) {
+  try {
+    return await handler(request);
+  } catch (error) {
+    console.error(error);
+    return new Response("Internal Server Error", { status: 500 });
+  }
 }
-const server = createServerEntry({ fetch });
+const server = { fetch: handleRequest };
+{
+  let serveStatic = function(urlPath) {
+    let resolvedPath = urlPath;
+    if (resolvedPath.endsWith("/")) {
+      resolvedPath += "index.html";
+    }
+    const filePath = join(CLIENT_DIR, resolvedPath.replace(/^\//, ""));
+    if (existsSync(filePath) && extname(resolvedPath)) {
+      const contentType = MIME_TYPES[extname(filePath)] || "application/octet-stream";
+      const content = readFileSync(filePath);
+      return {
+        status: 200,
+        headers: {
+          "content-type": contentType,
+          "content-length": String(content.length),
+          "cache-control": "public, max-age=31536000, immutable"
+        },
+        content
+      };
+    }
+    return null;
+  };
+  const MIME_TYPES = {
+    ".js": "application/javascript",
+    ".css": "text/css",
+    ".html": "text/html",
+    ".png": "image/png",
+    ".jpg": "image/jpeg",
+    ".jpeg": "image/jpeg",
+    ".svg": "image/svg+xml",
+    ".json": "application/json",
+    ".woff2": "font/woff2",
+    ".woff": "font/woff",
+    ".txt": "text/plain",
+    ".ico": "image/x-icon"
+  };
+  const CLIENT_DIR = join(process.cwd(), "dist", "client");
+  const server2 = createServer(async (req, res) => {
+    if (!req.url) {
+      res.writeHead(400);
+      res.end();
+      return;
+    }
+    const url = new URL$1(req.url, `http://${req.headers.host || "localhost"}`);
+    const staticPath = url.pathname.replace(/^\/editor\//, "/");
+    const staticResult = serveStatic(staticPath);
+    if (staticResult) {
+      res.writeHead(staticResult.status, staticResult.headers);
+      res.end(staticResult.content);
+      return;
+    }
+    const headers = {};
+    for (const [key, value] of Object.entries(req.headers)) {
+      if (typeof value === "string") headers[key] = value;
+      else if (Array.isArray(value)) headers[key] = value.join(", ");
+    }
+    const request = new Request(url, {
+      method: req.method,
+      headers,
+      body: req.method !== "GET" && req.method !== "HEAD" ? req : void 0
+    });
+    try {
+      const response = await handleRequest(request);
+      res.writeHead(response.status, Object.fromEntries(response.headers));
+      if (response.body) {
+        const reader = response.body.getReader();
+        const pump = () => {
+          reader.read().then(({ done, value }) => {
+            if (done) {
+              res.end();
+              return;
+            }
+            res.write(value);
+            pump();
+          });
+        };
+        pump();
+      } else {
+        res.end();
+      }
+    } catch (error) {
+      console.error(error);
+      res.writeHead(500);
+      res.end();
+    }
+  });
+  const port = parseInt(process.env.PORT || "3000", 10);
+  server2.listen(port, () => {
+    console.log(`Server listening on http://localhost:${port}`);
+  });
+}
 export {
-  createServerEntry,
+  createMiddleware as c,
   server as default
 };
