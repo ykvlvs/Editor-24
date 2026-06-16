@@ -85,10 +85,11 @@ if (process.env.NODE_ENV === "production") {
       else if (Array.isArray(value)) headers[key] = value.join(", ");
     }
 
+    const hasBody = req.method !== "GET" && req.method !== "HEAD";
     const request = new Request(url, {
       method: req.method,
       headers,
-      body: req.method !== "GET" && req.method !== "HEAD" ? req : undefined,
+      ...(hasBody ? { body: req, duplex: "half" as const } : {}),
     });
 
     try {

@@ -1580,10 +1580,11 @@ const server = { fetch: handleRequest };
       if (typeof value === "string") headers[key] = value;
       else if (Array.isArray(value)) headers[key] = value.join(", ");
     }
+    const hasBody = req.method !== "GET" && req.method !== "HEAD";
     const request = new Request(url, {
       method: req.method,
       headers,
-      body: req.method !== "GET" && req.method !== "HEAD" ? req : void 0
+      ...hasBody ? { body: req, duplex: "half" } : {}
     });
     try {
       const response = await handleRequest(request);
