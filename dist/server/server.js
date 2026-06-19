@@ -77,7 +77,7 @@ function getResponse() {
 }
 var HEADERS = { TSS_SHELL: "X-TSS_SHELL" };
 async function getStartManifest(matchedRoutes) {
-  const { tsrStartManifest } = await import("./assets/_tanstack-start-manifest_v-DkXvilEn.js");
+  const { tsrStartManifest } = await import("./assets/_tanstack-start-manifest_v-DRjJD0aD.js");
   const startManifest = tsrStartManifest();
   let routes = startManifest.routes;
   routes[rootRouteId];
@@ -1155,7 +1155,7 @@ var getBaseManifest = getProdBaseManifest;
 var createEarlyHintsForRequest = createEarlyHintsCollector;
 async function loadEntries() {
   const [routerEntry, startEntry, pluginAdapters] = await Promise.all([
-    import("./assets/router-WAQr6h0w.js"),
+    import("./assets/router-B5rVRuXv.js"),
     import("./assets/start-CsnQx6BY.js"),
     import("./assets/empty-plugin-adapters-BFgPZ6_d.js")
   ]);
@@ -1612,7 +1612,7 @@ const server = { fetch: handleRequest };
     }
   });
   const port = parseInt(process.env.PORT || "3000", 10);
-  server2.listen(port, () => {
+  server2.listen(port, "127.0.0.1", () => {
     console.log(`Server listening on http://localhost:${port}`);
   });
 }

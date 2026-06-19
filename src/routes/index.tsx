@@ -2,6 +2,9 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import caseFintech from "@/assets/case-fintech.jpg";
 import caseIndustrial from "@/assets/case-industrial.jpg";
+import vtbLogo from "@/assets/vtb-logo.png";
+import vedomostiLogo from "@/assets/vedomosti-logo.png";
+import prosveschenieLogo from "@/assets/prosveschenie-logo.png";
 import heroImage from "@/assets/tw.png";
 
 export const Route = createFileRoute("/")({
@@ -162,8 +165,10 @@ const PROCESS = [
   },
 ];
 
-const CLIENTS = [
-  "Гермес Капитал",
+const CLIENTS: Array<string | { kind: "logo"; src: string; alt: string }> = [
+  { kind: "logo", src: vtbLogo, alt: "ВТБ" },
+  { kind: "logo", src: vedomostiLogo, alt: "Ведомости" },
+  { kind: "logo", src: prosveschenieLogo, alt: "Просвещение" },
   "Норд-Стрим Тех",
   "Альтаир",
   "Полюс Право",
@@ -265,18 +270,27 @@ function Index() {
                 style={{ animation: "marquee 40s linear infinite" }}
               >
                 {[...CLIENTS, ...CLIENTS].map((c, i) => (
-                  <span
-                    key={i}
-                    className="text-sm md:text-base font-serif italic text-zinc-400 tracking-tight shrink-0"
-                  >
-                    {c}
-                  </span>
+                  typeof c === "string" ? (
+                    <span
+                      key={i}
+                      className="text-sm md:text-base font-serif italic text-zinc-400 tracking-tight shrink-0"
+                    >
+                      {c}
+                    </span>
+                  ) : (
+                    <img
+                      key={i}
+                      src={c.src}
+                      alt={c.alt}
+                      className="h-10 md:h-12 w-auto shrink-0 object-contain opacity-90"
+                    />
+                  )
                 ))}
               </div>
               <style>{`@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}`}</style>
             </div>
           </div>
-          <div className="hidden md:block absolute top-0 right-0 h-full w-[42%] overflow-hidden pointer-events-none">
+          <div className="hidden md:block absolute top-0 right-0 h-full w-[31.5%] overflow-hidden pointer-events-none">
             <img
               src={heroImage}
               alt=""

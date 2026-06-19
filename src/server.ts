@@ -119,7 +119,7 @@ if (process.env.NODE_ENV === "production") {
   });
 
   const port = parseInt(process.env.PORT || "3000", 10);
-  server.listen(port, () => {
+  server.listen(port, "127.0.0.1", () => {
     console.log(`Server listening on http://localhost:${port}`);
   });
 }
